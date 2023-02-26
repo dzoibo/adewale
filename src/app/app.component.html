@@ -1,6 +1,6 @@
 <header>
   <div id="logo">
-    <img src="../assets/adewale-logo.png" alt="">
+    <img src="../assets/images/adewale-logo.png" alt="">
   </div>
   <nav id="horizontal-nav">
       <ul>
@@ -13,17 +13,17 @@
   </nav>
   <div id="shopping-cart">
     <div>
-      <img src="../assets/search-outline.svg" alt="search icon">
-      <input style="display: none;" type="search">
+      <img (click)="displayHideSeachBar()" *ngIf="!showSearchbar" src="../assets/images/search-outline.svg" alt="search icon">
+      <input id="searchBar" (blur)="displayHideSeachBar()" *ngIf="showSearchbar" type="search">
     </div>
     <div>
-      <img src="../assets/shopping_bag_FILL0_wght400_GRAD0_opsz48.svg" alt="shopping bag">
-      <div>0</div>
+      <img src="../assets/images/shopping_bag_FILL0_wght400_GRAD0_opsz48.svg" alt="shopping bag">
+      <div>{{articleAdded.length}}</div>
     </div>
   </div>
 </header>
 
-<body>
+<body #scrollBottom>
   <div id="home-section">
     <div class="intro-article">
       <h2>Réveillez votre beauté</h2>
@@ -39,7 +39,7 @@
     </div>
   
     <div id="adewale-image">
-      <img src="../assets/background.png" alt="adewale image">
+      <img src="../assets/images/background.png" alt="adewale image">
     </div>
     <div id="men-women">
       <div>
@@ -49,7 +49,7 @@
       </div>
       <div></div>
     </div>
-    <div id="arrow-down">
+    <div id="arrow-down" (click)="scrollAll()">
       <i class="fa-sharp fa-solid fa-arrow-down"></i>
     </div>
     <div id="home-social-media-link">
@@ -87,14 +87,28 @@
       </button>
     </div>
     <div id="symbol">
-      <img src="../assets/symbol.png" alt="">
+      <img src="../assets/images/symbol.png" alt="">
     </div>
-    <div id="fashion-image-container">
-      <div class="fashion-image"> <div><button>Acheter cette tenue</button></div><img src="../assets/fashion-girl1.png" alt=""></div>
-      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/fashion-girl2.png" alt=""></div>
-      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/fashion-man1.png" alt=""></div>
-      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/fashion-man2.png" alt=""></div>
+    <div class="fashion-image-container">
+      <div class="fashion-image"> <div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-girl1.png" alt=""></div>
+      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-girl2.png" alt=""></div>
+      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man1.png" alt=""></div>
+      <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man2.png" alt=""></div>
     </div>
+    <swiper [config]="fashionConfig" id="fashion-swiper" style="height: auto; justify-content: center;">
+      <ng-template swiperSlide>
+        <div class="fashion-image"> <div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-girl1.png" alt=""></div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-girl2.png" alt=""></div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man1.png" alt=""></div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man2.png" alt=""></div>
+      </ng-template>
+  </swiper>
   </div>
   <div id="some-article">
     <div id="actual-mode">
@@ -109,121 +123,20 @@
     </div>
     <div>
       <div class="row">
-        <div class="card">
+        
+        <div *ngFor=" let article of articles" class="card">
           <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
+            <img [src]="article.image" alt="">
+            <div (click)="addArticle(article.id)">
+              <img src="../assets/images/Shopping Bag.png" alt="shopping bag">
               <span>Ajouter au panier</span>
             </div>
             <i class="fa-regular fa-heart"></i>
           </div>
           <div class="price-buy">
             <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card2.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
-            </div>
-            <button>Acheter</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/card1.png" alt="">
-            <div>
-              <img src="../assets/Shopping Bag.png" alt="shopping bag">
-              <span>Ajouter au panier</span>
-            </div>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-          <div class="price-buy">
-            <div>
-              <span>Chemise nago</span>
-              <span>12 000XOF</span>
+              <span>{{article.name}}</span>
+              <span>{{article.price}} XOF</span>
             </div>
             <button>Acheter</button>
           </div>
@@ -249,12 +162,12 @@
       <div class="chevron" *ngIf="slideIndex>0" (click)="slidePrev()">
         <i  class="fa-solid fa-angle-left"></i>
       </div>
-      <swiper #swiper style="width:100%" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+      <swiper #swiper style="width:100%; display: flex; justify-content: space-between;" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
         <ng-template swiperSlide>
           <div class="testimonial-message-container">
               <div class="testimonial-message">
                 <div class="chat">
-                  <img src="../assets/quotes.png" alt="">
+                  <img src="../assets/images/quotes.png" alt="">
                   Merci à Adéwalé Fashion d’être aussi parfaite sur tous les plans! Efficacité chirurgicale, prix imbattables et livraison rapide!
                   <div class="triangle">
                   </div>
@@ -262,7 +175,7 @@
               </div>
               <div class="testimonial-author">
                 <div>
-                  <img src="../assets/suplice.png" alt="">
+                  <img src="../assets/images/suplice.png" alt="">
                 </div>
                 <div>
                   <span>Sulpice R.</span>
@@ -275,7 +188,7 @@
           <div class="testimonial-message-container">
               <div class="testimonial-message">
                 <div class="chat">
-                  <img src="../assets/quotes.png" alt="">
+                  <img src="../assets/images/quotes.png" alt="">
                   J’ai trouvé la pièce idéale pour la célébration du mariage de ma mère. Les vêtements sont sur-mesure et le service client, impeccable.
                   <div class="triangle">
                   </div>
@@ -283,7 +196,7 @@
               </div>
               <div class="testimonial-author">
                 <div>
-                  <img src="../assets/leaticia.png" alt="">
+                  <img src="../assets/images/leaticia.png" alt="">
                 </div>
                 <div>
                   <span>Laeticia M.</span>
@@ -296,7 +209,7 @@
           <div class="testimonial-message-container"> 
             <div class="testimonial-message">
               <div class="chat">
-                <img src="../assets/quotes.png" alt="">
+                <img src="../assets/images/quotes.png" alt="">
                 Pour habiller mes modèles photos, je ne me prends plus la tête: un tour chez Adéwalé Fashion et je crée des chefs d’oeuvre!
                 <div class="triangle">
                 </div>
@@ -304,7 +217,7 @@
             </div>
             <div class="testimonial-author">
               <div>
-                <img src="../assets/rodolpho.png" alt="">
+                <img src="../assets/images/rodolpho.png" alt="">
               </div>
               <div>
                 <span>Rodolpho A.</span>
@@ -317,7 +230,7 @@
           <div class="testimonial-message-container">
               <div class="testimonial-message">
                 <div class="chat">
-                  <img src="../assets/quotes.png" alt="">
+                  <img src="../assets/images/quotes.png" alt="">
                   Merci à Adéwalé Fashion d’être aussi parfaite sur tous les plans! Efficacité chirurgicale, prix imbattables et livraison rapide!
                   <div class="triangle">
                   </div>
@@ -325,7 +238,7 @@
               </div>
               <div class="testimonial-author">
                 <div>
-                  <img src="../assets/suplice.png" alt="">
+                  <img src="../assets/images/suplice.png" alt="">
                 </div>
                 <div>
                   <span>Sulpice R.</span>
@@ -338,7 +251,7 @@
           <div class="testimonial-message-container"> 
             <div class="testimonial-message">
               <div class="chat">
-                <img src="../assets/quotes.png" alt="">
+                <img src="../assets/images/quotes.png" alt="">
                 Pour habiller mes modèles photos, je ne me prends plus la tête: un tour chez Adéwalé Fashion et je crée des chefs d’oeuvre!
                 <div class="triangle">
                 </div>
@@ -346,7 +259,7 @@
             </div>
             <div class="testimonial-author">
               <div>
-                <img src="../assets/rodolpho.png" alt="">
+                <img src="../assets/images/rodolpho.png" alt="">
               </div>
               <div>
                 <span>Rodolpho A.</span>
@@ -359,7 +272,7 @@
           <div class="testimonial-message-container">
               <div class="testimonial-message">
                 <div class="chat">
-                  <img src="../assets/quotes.png" alt="">
+                  <img src="../assets/images/quotes.png" alt="">
                   J’ai trouvé la pièce idéale pour la célébration du mariage de ma mère. Les vêtements sont sur-mesure et le service client, impeccable.
                   <div class="triangle">
                   </div>
@@ -367,7 +280,7 @@
               </div>
               <div class="testimonial-author">
                 <div>
-                  <img src="../assets/leaticia.png" alt="">
+                  <img src="../assets/images/leaticia.png" alt="">
                 </div>
                 <div>
                   <span>Laeticia M.</span>
@@ -386,7 +299,7 @@
 </body>
 <footer>
   <div id="contact">
-    <img id="manequin" src="../assets/Chairman-of-Bubble-Wax---African-Fashion-lookbook-_-African-styles-(1) 1.png" alt="">
+    <img id="manequin" src="../assets/images/Chairman-of-Bubble-Wax---African-Fashion-lookbook-_-African-styles-(1) 1.png" alt="">
     
     <form action="">
       <div id="form-intro">
@@ -405,13 +318,13 @@
 
       <button>Envoyez votre message</button>
     </form>
-    <img id="adewale_border" src="../assets/adewale_border.png" alt="">
+    <img id="adewale_border" src="../assets/images/adewale_border.png" alt="">
   </div>
   <div id="info">
     <div id="footer-item-list-container">
       <div class="footer-item-list">
           <div>
-            <img  src="../assets/adewale-logo.png" alt="">
+            <img  src="../assets/images/adewale-logo.png" alt="">
           </div>
           <div>
             <span>Portez africain.</span>
