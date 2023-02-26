@@ -145,7 +145,7 @@
         </div>
         <div class="card">
           <div class="card-img">
-            <img src="../assets/card1.png" alt="">
+            <img src="../assets/card2.png" alt="">
             <div>
               <img src="../assets/Shopping Bag.png" alt="shopping bag">
               <span>Ajouter au panier</span>
@@ -233,4 +233,219 @@
     </div>
     
   </div>
+  
+  <div id="testimonial-section">
+    <div class="intro-article">
+      <h2>Ce qu'ils pensent de nous.</h2>
+      <div>
+        Découvrez les avis des clients sur nos produits et services.
+        Nous espérons lire le vôtre très prochainement!
+      </div>
+      <button>
+        Essayez gratuitement
+      </button>
+    </div>
+    <div id="testimonial">
+      <div class="chevron" *ngIf="slideIndex>0" (click)="slidePrev()">
+        <i  class="fa-solid fa-angle-left"></i>
+      </div>
+      <swiper #swiper style="width:100%" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container">
+              <div class="testimonial-message">
+                <div class="chat">
+                  <img src="../assets/quotes.png" alt="">
+                  Merci à Adéwalé Fashion d’être aussi parfaite sur tous les plans! Efficacité chirurgicale, prix imbattables et livraison rapide!
+                  <div class="triangle">
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <div>
+                  <img src="../assets/suplice.png" alt="">
+                </div>
+                <div>
+                  <span>Sulpice R.</span>
+                  <span>Architecte d'intérieur</span>
+                </div>
+              </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container">
+              <div class="testimonial-message">
+                <div class="chat">
+                  <img src="../assets/quotes.png" alt="">
+                  J’ai trouvé la pièce idéale pour la célébration du mariage de ma mère. Les vêtements sont sur-mesure et le service client, impeccable.
+                  <div class="triangle">
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <div>
+                  <img src="../assets/leaticia.png" alt="">
+                </div>
+                <div>
+                  <span>Laeticia M.</span>
+                  <span>Directrice artistique</span>
+                </div>
+              </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container"> 
+            <div class="testimonial-message">
+              <div class="chat">
+                <img src="../assets/quotes.png" alt="">
+                Pour habiller mes modèles photos, je ne me prends plus la tête: un tour chez Adéwalé Fashion et je crée des chefs d’oeuvre!
+                <div class="triangle">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <div>
+                <img src="../assets/rodolpho.png" alt="">
+              </div>
+              <div>
+                <span>Rodolpho A.</span>
+                <span>Photographe</span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container">
+              <div class="testimonial-message">
+                <div class="chat">
+                  <img src="../assets/quotes.png" alt="">
+                  Merci à Adéwalé Fashion d’être aussi parfaite sur tous les plans! Efficacité chirurgicale, prix imbattables et livraison rapide!
+                  <div class="triangle">
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <div>
+                  <img src="../assets/suplice.png" alt="">
+                </div>
+                <div>
+                  <span>Sulpice R.</span>
+                  <span>Architecte d'intérieur</span>
+                </div>
+              </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container"> 
+            <div class="testimonial-message">
+              <div class="chat">
+                <img src="../assets/quotes.png" alt="">
+                Pour habiller mes modèles photos, je ne me prends plus la tête: un tour chez Adéwalé Fashion et je crée des chefs d’oeuvre!
+                <div class="triangle">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <div>
+                <img src="../assets/rodolpho.png" alt="">
+              </div>
+              <div>
+                <span>Rodolpho A.</span>
+                <span>Photographe</span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="testimonial-message-container">
+              <div class="testimonial-message">
+                <div class="chat">
+                  <img src="../assets/quotes.png" alt="">
+                  J’ai trouvé la pièce idéale pour la célébration du mariage de ma mère. Les vêtements sont sur-mesure et le service client, impeccable.
+                  <div class="triangle">
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <div>
+                  <img src="../assets/leaticia.png" alt="">
+                </div>
+                <div>
+                  <span>Laeticia M.</span>
+                  <span>Directrice artistique</span>
+                </div>
+              </div>
+          </div>
+        </ng-template>
+    </swiper>
+    <div class="chevron" *ngIf="slideIndex<3" (click)="slideNext()">
+      <i  class="fa-solid fa-angle-right"></i>
+    </div>
+
+    </div>
+  </div>
 </body>
+<footer>
+  <div id="contact">
+    <img id="manequin" src="../assets/Chairman-of-Bubble-Wax---African-Fashion-lookbook-_-African-styles-(1) 1.png" alt="">
+    
+    <form action="">
+      <div id="form-intro">
+        <span>Nous sommes à votre écoute 24/7</span>
+        <span>Contatctez-nous</span>
+      </div>
+      <div>
+        <input placeholder="Nom et prénoms" name="name" type="text">
+      </div>
+      <div>
+        <input placeholder="Adresse mail" name="mail" type="text">
+      </div>
+      <div>
+        <textarea placeholder="Message" name="" id="" cols="30" rows="1"></textarea>
+      </div>
+
+      <button>Envoyez votre message</button>
+    </form>
+    <img id="adewale_border" src="../assets/adewale_border.png" alt="">
+  </div>
+  <div id="info">
+    <div id="footer-item-list-container">
+      <div class="footer-item-list">
+          <div>
+            <img  src="../assets/adewale-logo.png" alt="">
+          </div>
+          <div>
+            <span>Portez africain.</span>
+            <span>Portez beau.</span>
+            <span>Portez Adéwalé.</span>
+          </div>
+      </div>
+      <div class="footer-item-list">
+          <h6>Liens utiles</h6>
+          <div>Panier</div>
+          <div>Boutique</div>
+          <div>FAQ</div>
+          <div>Votre compte</div>
+      </div>
+      <div class="footer-item-list">
+          <h6>Informations</h6>
+          <div>A propos</div>
+          <div>CGU-CGV</div>
+          <div>Mentions légales</div>
+      </div>
+      <div class="footer-item-list">
+          <h6>contacts</h6>
+          <div>Tél:+229 96268022</div>
+          <div>Email: hello@adewale.com</div>
+          <div>Mentions légales</div>
+          <div id="footer-social-media">
+            <div><i class="fa-brands fa-pinterest-p"></i></div>
+            <div><i class="fa-brands fa-facebook-f"></i></div>
+            <div><i class="fa-brands fa-instagram"></i></div>
+          </div>
+      </div>
+    </div>
+    <div id="copyright">
+        Copyright©2023 DZOIBO - Tous droits réservés
+    </div>
+  </div>
+</footer>
