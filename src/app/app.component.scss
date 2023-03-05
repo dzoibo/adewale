@@ -85,20 +85,38 @@ button{
         min-width: 80px;
         height: 33px;
         @extend .flex-space;
+        div{
+            display: flex;
+            align-items: center;
+        }
+        z-index: 100;
         img{
             height: 30px;
             width: 30px;
             cursor: pointer;
 
         }
-        input{
+        #searchBar{
             height: 32px !important;
             border-radius: 5px;
             font-family: 'Inter',sans-serif;
             margin-left: 16px;
             outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.489);
             background-color: rgba(255, 255, 255, 0.5);
+        }
+        .searchDisplay{
+            width: clamp(100px,20vw,200px);
+            border: 0.5px solid rgba(0, 0, 0, 0.489);
+            transition: 0.3s  ease-in ;
+            transition-property: width;
+            margin-right: 32px;
+
+        }
+        .searchHiden{
+            width: 0px;
+            border-width: 0px;
+            transition: 0.3s ease-out width;
+            opacity: 0;
         }
         div:nth-child(1){
             img{
@@ -112,6 +130,7 @@ button{
                 width: 15px;
                 border-radius: 50%;
                 text-align: center;
+                justify-content: center;
                 position: absolute;
                 bottom: -2px;
                 right: -2px;
@@ -179,11 +198,14 @@ button{
 }
 
 #home-section{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
+    max-width: 100%;
+    overflow: hidden;
     box-sizing:border-box;
     background-color: #fffbf2;
     padding: 100px 120px 0px 80px;
     display: flex;
+    position: relative;
     justify-content: space-between;
     margin-bottom: 102px;
 }
@@ -361,7 +383,7 @@ button{
     display: flex;
     justify-content: space-between;
     display :grid;
-    Grid-template : auto / 1fr 1fr 1fr 1fr;
+    grid-template : auto / 1fr 1fr 1fr 1fr;
     margin: 0px 80px 0px 80px;
     position: relative;
     box-sizing: border-box;
@@ -662,8 +684,9 @@ button{
 }
 
 @media (width<1200px) {
+    
     .row{
-        Grid-template : auto /  1fr 1fr 1fr;
+        grid-template : auto /  1fr 1fr 1fr;
     }
     #contact{
         justify-content: center !important;
@@ -676,7 +699,7 @@ button{
 }
 @media (599px<width<800px) {
     .row{
-        Grid-template : auto / 1fr 1fr;
+        grid-template : auto / 1fr 1fr;
     }
     .fashion-image-container{
         display: none !important;
@@ -689,9 +712,9 @@ button{
         margin-left: 32px;
     }
 }
-@media (width<600px) {
+@media (width<600px ) {
     .row{
-        Grid-template : auto / 1fr;
+        grid-template : auto / 1fr;
     }
     .fashion-image-container{
         display: none !important;
@@ -800,5 +823,28 @@ button{
         &:last-child{
             right: 15px !important;
         }
+    }
+}
+@media (min-height:900px) {
+    #home-section{
+        height: calc(100vh - 100px) !important;
+    }
+    
+}
+@media(height<700px){
+    #home-section{
+        height: calc(100vh - 100px);
+        padding-top: 0px;
+        .intro-article{
+            width: 550px;
+        }
+    }
+    #arrow-down{
+        bottom: 32px 
+    }
+    #home-social-media-link{
+        height: 150px;
+        width: 32px;
+        bottom: 74px;
     }
 }
