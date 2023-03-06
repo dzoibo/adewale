@@ -2,14 +2,40 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Article } from './model';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        width: '100vw',
+        opacity: 1,
+      })),
+      state('closed', style({
+        with: '0px',
+        opacity: 0,
+      })),
+      transition('open => closed', [
+        animate('0.5s ease-in')
+      ]),
+      transition('closed => open', [
+        animate('0.5s ease-in')
+      ]),
+    ]),
+  ],
 })
 export class AppComponent implements OnInit {
   @ViewChild('scrollBottom') private scrollBottom!: ElementRef;
+  
   title = 'adewale';
   slideIndex=0;
   articleAdded: number[]=[];
@@ -53,6 +79,8 @@ export class AppComponent implements OnInit {
   ];
   config!: SwiperOptions;
   fashionConfig!: SwiperOptions;
+  menuIsDisplayed=false;
+
 
   @ViewChild('swiper', { static: false }) swiper!: SwiperComponent;
   getSildePreview(){
@@ -119,5 +147,10 @@ export class AppComponent implements OnInit {
   addArticle(id: number){
     this.articleAdded.push(id);
     window.scrollTo(0, -document.body.scrollHeight);
+  }
+
+  showMenu(){
+    this.menuIsDisplayed=!this.menuIsDisplayed;
+    console.log(this.menuIsDisplayed, 'menu is displayed');
   }
 }
