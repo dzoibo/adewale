@@ -151,6 +151,11 @@ export class AppComponent implements OnInit {
 
   showMenu(){
     this.menuIsDisplayed=!this.menuIsDisplayed;
-    console.log(this.menuIsDisplayed, 'menu is displayed');
+    const html= document.getElementsByTagName('html');
+    if(this.menuIsDisplayed){
+      html[0].style.overflow='hidden';
+    }else{
+      html[0].style.overflow='auto';
+    }
   }
 }
