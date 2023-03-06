@@ -111,7 +111,7 @@
       <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man1.png" alt=""></div>
       <div class="fashion-image"><div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-man2.png" alt=""></div>
     </div>
-    <swiper [config]="fashionConfig" id="fashion-swiper" style="height: auto; justify-content: center;">
+    <swiper #fashionSwiper [config]="fashionConfig" id="fashion-swiper" style="height: auto; justify-content: center;">
       <ng-template swiperSlide>
         <div class="fashion-image"> <div><button>Acheter cette tenue</button></div><img src="../assets/images/fashion-girl1.png" alt=""></div>
       </ng-template>

@@ -1,15 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { SwiperOptions } from 'swiper';
+import Swiper, { Autoplay,SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Article } from './model';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
+import {trigger,state,style,animate,transition} from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -80,9 +73,10 @@ export class AppComponent implements OnInit {
   config!: SwiperOptions;
   fashionConfig!: SwiperOptions;
   menuIsDisplayed=false;
-
+  
 
   @ViewChild('swiper', { static: false }) swiper!: SwiperComponent;
+  @ViewChild('fashionSwiper', { static: false }) fashionSwiper!: SwiperComponent;
   getSildePreview(){
     if(window.innerWidth>1200){
       this.config.slidesPerView= 3;
@@ -95,24 +89,33 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    Swiper.use([Autoplay]);
     this.showSearchbar=false;
     this.config= {
       slidesPerView: 3,
       spaceBetween: 50,
       navigation: true,
+
       pagination: { clickable: true },
       scrollbar: { draggable: true },
     };
+    
     this.fashionConfig= {
       slidesPerView: 1,
       spaceBetween: 100,
-      navigation: true,
-      pagination: { clickable: true },
-      scrollbar: { draggable: true },
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
     };
     this.getSildePreview();
+    this.fashionSwiper.swiperRef.autoplay.start();
   }
-
+  ngAfterViewInit(): void
+  {
+    this.fashionSwiper.swiperRef.autoplay.start();
+  }
   
   onSwiper(swiper: any) {
     console.log(swiper);

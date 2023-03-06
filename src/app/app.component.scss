@@ -913,6 +913,7 @@ button{
             height: calc( 100vh - 104px);
             top:104px;
             overflow: hidden;
+            width: 0px;
             background-color: #fffbf2;
             display: flex;
             align-items: center;
