@@ -49,9 +49,6 @@ button{
         @extend .flex-center;
         flex-wrap: wrap;
         font-size: medium;
-        &:nth-child(2){
-            display: none;
-        }
         ul{
             width: 100%;
             @extend .flex-space; 
@@ -71,6 +68,9 @@ button{
             color:$primary;
             font-size: 1.1em
         }
+    }
+    #hamberger-menu{
+        display: none;
     }
   header{
     background-color: #fffbf2;
@@ -744,9 +744,7 @@ button{
             margin-top: 32px;
         }
     }
-    #horizontal-nav{
-        display: none !important;
-    }
+    
     #arrow-down{
         bottom:16px;
         width: 30px;
@@ -857,6 +855,7 @@ button{
         display: none;
     }
   @media(width<1000px){
+
       .menu-btn{
         display: block;
         margin-left: 16px;
@@ -907,7 +906,7 @@ button{
       .menu-btn.open .menu-btn__burger::after {
         transform: rotate(-45deg) translate(15px, 15px);
       }
-        .nav
+        #hamberger-menu
         {
             z-index: 1000;
             position: fixed;
@@ -919,7 +918,7 @@ button{
             align-items: center;
             justify-content: enter;
             ul{
-                margin-top: -30px;
+                margin-top: -100px;
                 flex-direction: column;
                 li{
                     margin-left: -50px;
@@ -927,5 +926,7 @@ button{
                 }
             }
         }
-
+        #horizontal-nav{
+            display: none !important;
+        }
     }
